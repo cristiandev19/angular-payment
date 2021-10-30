@@ -1,0 +1,36 @@
+<section>
+  <h1>Hola</h1>
+
+  <figure class="image">
+    <img [src]="image" alt="foto" class="f-width" />
+  </figure>
+
+  <span>{{name}}</span>
+
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Pago 1 </mat-panel-title>
+        <mat-panel-description> $ 100 </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <p>I'm visible because I am open</p>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Pago 2 </mat-panel-title>
+        <mat-panel-description> $ 200 </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <p>I'm visible because I am open</p>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</section>
