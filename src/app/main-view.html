@@ -1,35 +1,31 @@
 <section>
   <h1>Hola</h1>
 
-  <figure class="image">
-    <img [src]="image" alt="foto" class="f-width" />
-  </figure>
-
-  <span>{{name}}</span>
+  <div>
+    <figure class="image">
+      <img [src]="image" alt="foto" class="f-width" />
+    </figure>
+    <span>{{name}}</span>
+  </div>
 
   <mat-accordion>
     <mat-expansion-panel
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
+      *ngFor="let payment of payments; trackBy: trackPayment"
     >
       <mat-expansion-panel-header>
-        <mat-panel-title> Pago 1 </mat-panel-title>
-        <mat-panel-description> $ 100 </mat-panel-description>
+        <mat-panel-title>
+          {{ payment.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+          ${{payment.amount}}
+        </mat-panel-description>
       </mat-expansion-panel-header>
       <div>
-        <p>I'm visible because I am open</p>
-      </div>
-    </mat-expansion-panel>
-    <mat-expansion-panel
-      (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false"
-    >
-      <mat-expansion-panel-header>
-        <mat-panel-title> Pago 2 </mat-panel-title>
-        <mat-panel-description> $ 200 </mat-panel-description>
-      </mat-expansion-panel-header>
-      <div>
-        <p>I'm visible because I am open</p>
+        <payment-form 
+          [amount]="payment.amount" 
+          [type]="payment.type"
+          (emitter)="handleChange($event, payment.id)"
+        ></payment-form>
       </div>
     </mat-expansion-panel>
   </mat-accordion>

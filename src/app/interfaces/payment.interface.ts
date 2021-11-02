@@ -1,5 +1,6 @@
 export interface IPayment {
-  name: string;
+  id?: number;
+  name?: string;
   amount: number;
-  type: string;
+  type: number;
 }

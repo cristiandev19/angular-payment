@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './app/material-module';
 
 import { MainView } from './app/main-view';
+import { PaymentForm } from './app/components/payment-form/payment-form.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { MainView } from './app/main-view';
     ReactiveFormsModule,
   ],
   entryComponents: [MainView],
-  declarations: [MainView],
+  declarations: [MainView, PaymentForm],
   bootstrap: [MainView],
 })
 export class AppModule {}
